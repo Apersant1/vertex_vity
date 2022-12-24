@@ -1,0 +1,17 @@
+export const daysLeft = (deadline)  =>{
+    const diff = new Date(deadline).getTime() - Date.now();
+    const remainingDays = diff / (1000*3600*24); // 1000ms * 3600s * 24h
+    return remainingDays.toFixed(0);
+}
+export const calculateBarPercentage = (goal,reizedAmount) => {
+    const percentage = Math.round((reizedAmount*100 )/ goal);
+    return percentage;
+}
+
+export const checkIfImage = (url,callback) => {
+    const img = new Image();
+    img.src = url;
+    if(img.complete) callback(true);
+    img.onload = () => callback(true);
+    img.onerror = () => callback(false);
+}
