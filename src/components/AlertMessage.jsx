@@ -2,8 +2,8 @@ import React from 'react'
 
 const AlertMessage = ({name,message}) => {
     return (
-        <section className=" absolute flex flex-col justify-center antialiased z-50 text-gray-600 w-[500px] max-h-40 p-4">
-        <div className="h-full">
+        <section className="fixed inset-0 z-10 bg-[rgba(0,0,0,0.6)] flex justify-center items-center flex-auto">
+            <div className="">
 
             <div className="max-w-2xl mx-auto bg-red-600 shadow-lg rounded-lg">
                 <div className="px-6 py-5">

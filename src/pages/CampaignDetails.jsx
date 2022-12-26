@@ -20,6 +20,8 @@ const CampaignDetails = (props) => {
     const navigate = useNavigate();
 
     const remainingDays = daysLeft(state.deadline);
+
+
     const fetchCountUserCampaigns = async () => {
 
         const data = await getUserCampaigns();
@@ -37,6 +39,7 @@ const CampaignDetails = (props) => {
        } catch (e){
            setShowErr(true)
            setIsLoading(false)
+           setTimeout(()=>{setShowErr(false)},3000)
        }
 
     };
@@ -54,10 +57,11 @@ const CampaignDetails = (props) => {
     }, [address, contract]);
 
     return (
-        <div>
+        <div className="overflow-hidden">
             {isLoading && <Loader/>}  {/* loader */}
-            {showErr && <AlertMessage/>}
-
+            <div className="absolute top-50 left-[50%] w-[50%] h-[200px] ">
+                {showErr && <AlertMessage/>}
+            </div>
             <div className="w-full flex md:flex-row flex-col mt-10 gap-[30px]">
                 <div className="flex-1 flex-col">
                     <img src={state.image} alt="campaign" className="w-full h-[410px] object-cover rounded-xl"/>
